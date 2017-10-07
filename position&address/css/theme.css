@@ -1,0 +1,17 @@
+.amap-ui-mobi-city-picker.red{
+background:red;
+color:#fff;
+}
+.amap-ui-mobi-city-picker.red .top_group .citylist .item{
+border:1px solid #b0adad;
+}
+.amap-ui-mobi-city-picker.red .listgroup .title,
+.amap-ui-mobi-city-picker.red .city_fixed_title{
+background-color:#521717;
+}
+.amap-ui-mobi-city-picker.red .letter_tip{
+background:#333;
+}
+.amap-ui-mobi-city-picker.red a:active{
+background:#eee;
+}

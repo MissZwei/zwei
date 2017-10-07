@@ -1,0 +1,60 @@
+.clear:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+.zw-position-bottomAlert {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #eee;
+}
+.btn {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background: #ccc;
+}
+.btn span:first-child {
+  float: left;
+}
+.btn span:last-child {
+  float: right;
+}
+.select-city > div {
+  overflow: hidden;
+  float: left;
+  width: 33.33333333%;
+  text-align: center;
+}
+.swiper-slide {
+  margin: 0;
+  text-align: center;
+  color: gray;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.swiper-slide-active {
+  color: black;
+  font-size: 16px;
+  color: #521717;
+}
+.swiper-slide-prev {
+  font-size: 12px;
+}
+.swiper-slide-next {
+  font-size: 12px;
+}
