@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			body{
+				padding:10px;
+			}
+			.btn{
+				width:100px;
+				height:30px;
+				line-height: 30px;
+				text-align: center;
+				font-size:16px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+			}
+
+			.content{
+				width:300px;
+				height:80px;
+				border: 1px solid #ccc;
+				font-size: 14px;
+			}
+			.zw-emoji{margin-top:10px;width:100%;box-sizing:border-box;border: 1px solid #DCDCDC;}
+			.zw-emoji:after{content:'';display: block;clear: both;}
+			.zw-emoji span{float:left;padding:3px;box-sizing:border-box;width:10%;height:31px;}
+			.zw-emoji span img{display: block;margin:0 auto;width:25px;height:25px;}
+		</style>
+		<script type="text/javascript" src="../js/public.js" ></script>
+	</head>
+	<body>
+		<div class="content"></div>
+		<input type="text" class="inp" style="opacity: 0;">
+		<div class="btn">输入表情</div>
+		<div class="zw-emoji" style="display: none;"></div>
+		<script type="text/javascript" src="../js/jquery.min.js" ></script>
+		<script>
+			$(function(){
+				var dataArr = [];
+			    var app_id = '1362404091';
+			    $.ajax({
+			        dataType: 'jsonp',
+			        url: 'https://api.weibo.com/2/emotions.json?source='+app_id+'',
+			        success: function (response) {
+			            dataArr = response.data;
+			            var arr = '';
+			            for(var i = 0; i < 117;i++){
+			            	arr += "<span onclick='emoji(this);'><img src='"+dataArr[i].url+"' /></span>"
+			            }
+			            $(".zw-emoji").html(arr);
+			        }
+			    });
+			    
+			    $(".content").on("click",function(){
+			    	$(".zw-emoji").hide();
+			    	var con = $(".content").html();
+			    	$(".inp").val(con);
+			    	$(".inp").focus();
+			    	$(".inp").on('input propertychange',function(){
+			    		$(".content").html($(this).val());
+			    	});
+			    });
+			    
+				//点击"输入表情"显示表情库
+				$(".btn").on("click",function(){
+					$(".zw-emoji").show();
+				});
+				
+			})
+			function emoji(_this){
+			    var emo = $(_this).html();
+			    $(".content").html($(".content").html()+emo);
+				
+			}
+		</script>
+	</body>
+</html>
